@@ -92,9 +92,15 @@ inline ThreadPool::~ThreadPool()
         std::unique_lock<std::mutex> lock(queue_mutex);
         stop = true;
     }
+<<<<<<< HEAD
     condition.notify_all(); //唤醒所有线程执行
     for(std::thread &worker: workers) 
         worker.join(); //等待任务结束
+=======
+    condition.notify_all();
+    for(std::thread &worker: workers)
+        worker.join();
+>>>>>>> 9a42ec1329f259a5f4881a291db1dcb8f2ad9040
 }
 
 #endif
